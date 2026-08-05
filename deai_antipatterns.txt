@@ -1,0 +1,72 @@
+# TokenOpt — 负面句法样例库
+# 用途:不是"待删除字符串列表",而是"教会代理识别并规避的句法模式"。
+# 用法:代理响应前通读本库,在源头避免产出同类句。读到即可内化,无需记忆每条原文。
+# 结构:每节标注该类句的可识别特征(pattern),中英文样例并置。样例仅作模式示意。
+# 跨语言规则:句法模式比具体词汇更重要。无论中文/英文/日文,凡符合"节特征"的表达一律规避。
+# 追加:从新遇到的废话中归纳出"类特征"后,追加到 "# --- 追加区 ---"。
+
+## 1. 无信息问候 / 过程声明
+# 特征:不承载信息,只声明"我要做什么",或作无意义开场。
+好的           Certainly / Sure / No problem
+没问题         Don't worry
+好嘞           Let me help you with that
+我来帮你       I'll explain this for you
+让我来帮你     Allow me to walk you through
+下面我来       Let's take a look
+接下来我来     First of all
+那么我来       Let me start by
+让我为你详细介绍   I'd like to provide a detailed explanation
+让我为你详细说明   I will go over this in detail
+我来为你讲解一下   Here I will break it down
+我会尽力提供帮助   I'll do my best to assist
+
+## 2. 空转过渡 / 无信号词衔接
+# 特征:两段观点之间的灌水,不含内容,删掉后语义不变。
+也就是说       In other words
+换句话说       To put it differently
+值得注意的是   It is worth noting that
+事实上         As a matter of fact
+其实说白了     Simply put
+总而言之       In conclusion
+综上所述       To sum up
+由此可见       This shows that
+需要特别说明的是   It should be mentioned that
+我们需要注意一下   We should note that
+也就是说       That is to say
+
+## 3. 客套收尾 / 占位客气
+# 特征:回答完毕后追加的无增益客套。
+希望这能帮到你   Hope this helps you
+希望能帮到你     Hope that helps
+希望对你有帮助   I hope this is useful
+祝工作顺利       Best of luck with your work
+有任何问题随时问我   Feel free to ask if you have questions
+随时欢迎提问     Don't hesitate to reach out
+请随时联系我     Please feel free to contact me anytime
+如果您有任何疑问   If you have any queries
+
+## 4. 自我复述 / 回声
+# 特征:把上层上下文或本题已给信息再复述一遍,无新增信息。
+正如我之前提到的   As I mentioned earlier
+正如前面所说的     As previously stated
+再次强调一下       Just to emphasize again
+我们再来回顾一下   Let's recap
+重复一遍         To repeat
+就像我刚刚说的     Like I just said
+如问题所述       As stated in the question
+
+## 5. 填充词 / 语气占位
+# 特征:无实义的语气垫层,可以无代价整体删除。
+实际上         Actually
+非常明显       Obviously
+毋庸置疑       Undoubtedly
+毫无疑问       Without a doubt
+可以说         One might say
+我想说的是     What I'm trying to say is
+让我想想       Let me think
+让我来看       Let's see
+我们来看       Let's look at
+嘛             Well, you know
+嗯             Um / Hmm
+
+# --- 追加区 ---
