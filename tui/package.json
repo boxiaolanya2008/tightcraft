@@ -1,0 +1,24 @@
+{
+  "name": "@zhulong/tui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "烛龙·九幽 Zhulong TUI — ink + react 交互式终端界面",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@zhulong/core": "^0.1.0",
+    "ink": "^5.0.1",
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

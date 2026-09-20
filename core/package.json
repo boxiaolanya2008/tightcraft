@@ -1,0 +1,19 @@
+{
+  "name": "@zhulong/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "烛龙·引擎 Zhulong Core — 纯 TypeScript 自研 Agent 引擎(state machine / guard / tools / loop / provider / planner / memory)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

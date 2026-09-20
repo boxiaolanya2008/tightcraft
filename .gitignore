@@ -8,9 +8,7 @@ dist/
 *.log
 .npm/
 
-# Vite
-web/dist/
-.vite/
-
-# Runtime artifacts created by the self-built write tool demo
-server/.runtime/
+# Runtime artifacts created by the self-built write tool demo (accept 模式探针)
+.runtime/
+# 工具缓存目录(勿提交)
+.trae-html-share-packages/

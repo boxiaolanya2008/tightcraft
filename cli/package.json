@@ -1,0 +1,21 @@
+{
+  "name": "@zhulong/cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "烛龙·赤水 Zhulong CLI — 纯 Node 命令行交互(run / chat / prompts / plan)",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@zhulong/core": "^0.1.0",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
