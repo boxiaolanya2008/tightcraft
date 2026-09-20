@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+*.log
+.npm/
+
+# Vite
+web/dist/
+.vite/
+
+# Runtime artifacts created by the self-built write tool demo
+server/.runtime/
