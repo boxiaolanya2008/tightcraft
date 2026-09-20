@@ -1,34 +1,49 @@
 # agent-craft
 
-Agent 工程化能力外延工具箱：在基础行为工具箱(thinking / coding / dev / tool / ui / output / memory / commit / github)之上，补齐尚未覆盖的八项**可落地** Agent 能力。纯文档驱动，无外部脚本，随读随用。
+自研 Agent 框架(纯 Python、零第三方依赖):执行循环 + 工具系统 + 规划器 + 指纹记忆 + 安全门禁。既有的 `modules/` 是行为规范文档，本目录是把规范落成能跑代码。
 
-## 覆盖能力(新增)
+## 能干什么(实际可运行)
 
-| 模块 | 解决的问题 |
-|---|---|
-| `planning` | 大任务起手：契约化拆解、依赖 DAG、验收向后构成 |
-| `debugging` | 报错定位：复现优先、二分收敛、证据链、变量隔离 |
-| `testing` | 让行为可证明：金字塔、可测性判定、先红后绿 |
-| `refactoring` | 行为保持的结构变更：安全网、小步切换、零漂移 |
-| `agent-loop` | 多步工具编排：执行状态机、失败恢复、可回滚 |
-| `research` | 信息采集：一手源优先、溯源级、交叉核验、反幻觉 |
-| `security` | 攻击面审查：注入/密钥/越权 + Agent 侧最小权限 |
-| `context-governance` | 长会话：锁存指纹复用于控制 token、预算失闸 |
+- **Agent 执行循环**:`plan -> act(工具) -> observe -> loop`，带 `max_steps` 护栏与失败恢复。
+- **工具系统**:注册表 + 内置 `fs_read/fs_list/fs_write/sh_run`，可自定义扩展。
+- **写前已读安全门禁**(自研差异点):`fs_write` 已存在文件必须先 `fs_read`；指纹过期则拒写，防覆盖未审计/已漂移文件。
+- **记忆治理**:文件指纹锁存、失效作废。
+- **规划器**:任务 → DAG 拆解 + 环/悬空检测 + 拓扑序。
+- **在线决策**:`OpenAIProvider` 走 OpenAI 兼容端点函数调用(仅 urllib)。
 
-每域统一 **硬边界 → 教学引导 → 反味规避 → 良/劣例** 结构，与基础工具箱风格一致。
+## 快速验证(离线)
 
-## Quick Start
+```bash
+python3 -m pytest -q            # 14 个用例，无网络、无密钥
+PYTHONPATH=src python3 -m agentcraft.cli run "写读演示"
+```
 
-1. 读 `SKILL.md`(入口 + 路由表)。
-2. `modules/antipatterns.md` 作跨域通用反味库，恒生效。
-3. 按任务对决路由加载模块；任务重叠并行加载。
+## 在线使用
 
-## 使用原则
+```bash
+pip install -e .
+agent-craft chat "<你的任务>" --api-key $OPENAI_API_KEY --model gpt-4o-mini
+```
 
-- 输出是可执行动作(带契约的命令/清单/判定)，非"理论上应该……"。
-- 引用事实必溯源；动作必可复现、带验证出口。
-- 不触碰未涉及之物：write/edit 只改目标区。
+`--base-url` 可指向任意 OpenAI 兼容端点。
 
-## License / 贡献
+## 目录
 
-与主仓库相同；新增能力按 Conventional Commits 原子提交。
+```
+src/agentcraft/
+  agent.py     执行循环
+  providers.py 决策抽象(OpenAI兼容 / Mock)
+  tools.py     工具系统 + 写前已读门禁
+  memory.py    指纹记忆
+  planning.py  规划器(DAG)
+  types.py     核心类型
+  cli.py       命令行入口
+tests/         离线测试(证明实际跑通)
+docs/          架构说明
+modules/       行为规范文档(能力定义)
+```
+
+## 安全提示
+
+- OpenAI API Key 走环境变量，勿提交进仓库。
+- `sh_run` 默认白名单只读命令；写文件有门禁。高权限使用需自行按 `root`/白名单收敛。
